@@ -65,3 +65,11 @@
 .main.content.clearfix {
   padding-bottom: 0px;
 }
+
+/* Drag */
+#gb > div.gb_Dd.gb_ce.gb_Md.gb_de > div.gb_Bc.gb_Xd.gb_ze {
+    -webkit-app-region: drag;
+}
+#gb > div.gb_Dd.gb_ce.gb_Md.gb_de > div.gb_Bc.gb_Xd.gb_ze .gb_gc {
+    -webkit-app-region: no-drag;
+}
