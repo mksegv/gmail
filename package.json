@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "./launch.sh",
-    "build": "electron-packager . Gto --platform=darwin --arch=x64 --version=2.0.8 --icon=lib/media/gmail.png",
+    "build": "electron-packager . Gto --platform=darwin --arch=x64 --version=2.0.8 --icon=lib/media/icon.icns --overwrite",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
