@@ -73,3 +73,23 @@
 #gb > div.gb_Dd.gb_ce.gb_Md.gb_de > div.gb_Bc.gb_Xd.gb_ze .gb_gc {
     -webkit-app-region: no-drag;
 }
+
+#gb > div.gb_Dd.gb_ce.gb_Md.gb_de > div.gb_Bc.gb_Xd.gb_ze {
+    padding-left: 55px;
+}
+.gb_Bc {
+    height: 28px !important;
+}
+.gb_Rd {
+    height: 28px !important;
+}
+.gb_Re button svg, .gb_Re button img {
+    padding: 0 !important;
+}
+.gb_af {
+    padding: 0 !important;
+    height: 28px !important;
+}
+#aso_search_form_anchor {
+    height: 28px !important;
+}
