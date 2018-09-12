@@ -1,32 +1,33 @@
 {
-  "name": "gmail-app",
-  "productName": "Gmail",
+  "name": "Gto",
+  "productName": "Gto",
   "version": "0.0.1",
-  "description": "A native gmail client.",
+  "description": "An electron-based gmail client.",
   "main": "index.js",
   "bin": {
     "gmail": "./launch.sh"
   },
   "scripts": {
     "start": "./launch.sh",
-    "build": "electron-packager . Gmail --platform=darwin --arch=x64 --version=0.35.1 --icon=lib/media/gmail.png",
+    "build": "electron-packager . Gto --platform=darwin --arch=x64 --version=2.0.8 --icon=lib/media/gmail.png",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/paulot/gmail.git"
+    "url": "git+https://github.com/mksegv/gto.git"
   },
   "keywords": [
+    "gto",
     "gmail",
     "mail",
     "app"
   ],
-  "author": "Paulo Tanaka",
+  "author": "mksegv",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/paulot/gmail/issues"
+    "url": "https://github.com/mksegv/gto/issues"
   },
-  "homepage": "https://github.com/paulot/gmail#readme",
+  "homepage": "https://github.com/mksegv/gto#readme",
   "dependencies": {
     "bluebird": "^3.0.5",
     "electron": "^2.0.8",
