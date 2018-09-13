@@ -33,7 +33,8 @@
     "electron": "^2.0.8",
     "electron-debug": "^2.0.0",
     "jquery": "^2.1.4",
-    "node-gmail": "^1.0.0"
+    "node-gmail": "^1.0.0",
+    "electron-window-state": "^5.0.1",
   },
   "devDependencies": {
     "babel-core": "^6.2.1",
