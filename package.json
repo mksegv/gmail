@@ -30,11 +30,11 @@
   "homepage": "https://github.com/mksegv/gto#readme",
   "dependencies": {
     "bluebird": "^3.0.5",
-    "electron": "^2.0.8",
+    "electron": "^3.0.0-beta.12",
     "electron-debug": "^2.0.0",
-    "jquery": "^2.1.4",
-    "node-gmail": "^1.0.0",
     "electron-window-state": "^5.0.1",
+    "gmail-js": "^0.7.7",
+    "jquery": "^2.1.4"
   },
   "devDependencies": {
     "babel-core": "^6.2.1",
