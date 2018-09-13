@@ -67,31 +67,36 @@
 }
 
 /* Drag */
-#gb > div.gb_Dd.gb_ce.gb_Md.gb_de > div.gb_Bc.gb_Xd.gb_ze {
+#gb > div.gb_Ed.gb_de.gb_Nd.gb_ee > div.gb_Cc.gb_Zd.gb_Ae {
     -webkit-app-region: drag;
+    padding-left: 55px;
 }
-#gb > div.gb_Dd.gb_ce.gb_Md.gb_de > div.gb_Bc.gb_Xd.gb_ze .gb_gc {
+#gb > div.gb_Ed.gb_de.gb_Nd.gb_ee > div.gb_Cc.gb_Zd.gb_Ae .gb_hc {
     -webkit-app-region: no-drag;
 }
 
-#gb > div.gb_Dd.gb_ce.gb_Md.gb_de > div.gb_Bc.gb_Xd.gb_ze {
-    padding-left: 55px;
-}
-.gb_Bc {
+.gb_Cc {
     height: 28px !important;
 }
-.gb_Rd {
+.gb_Dc {
     height: 28px !important;
 }
-.gb_Re button svg, .gb_Re button img {
+#aso_search_form_anchor > div > input {
+    height: 28px !important;
     padding: 0 !important;
-}
-.gb_af {
-    padding: 0 !important;
-    height: 28px !important;
 }
 #aso_search_form_anchor {
+    margin-top: 10px;
     height: 28px !important;
+}
+#aso_search_form_anchor > button.gb_df.gb_nf > svg {
+    padding: 0 !important;
+}
+#aso_search_form_anchor > button.gb_sf > svg {
+    padding: 0 !important;
+}
+#aso_search_form_anchor > button.gb_pf.gb_rf > svg {
+    padding: 0 !important;
 }
 .G-atb {
     height: 32px;
