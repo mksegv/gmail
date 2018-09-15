@@ -79,6 +79,9 @@ function createWindow() {
         mainWindow.hide()
       }
     });
+    app.on('activate', (e) => {
+      mainWindow.show()
+    })
   } else
     mainWindow.on('close', app.quit);
 
