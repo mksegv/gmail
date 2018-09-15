@@ -1,34 +1,69 @@
+const $ = require('cash-dom')
+const xhook = require('xhook').xhook
+
 window.onload = function() {
-  var jquery = require('jquery');
-  const GmailFactory = require("gmail-js");
   var page = require('./ui/gmail.js');
   var ipc = require('electron').ipcRenderer
 
-  window.j = jquery;
+  window.$ = $
   window.page = new page();
-  window.Gmail = GmailFactory.Gmail(jquery);
+  window.xhook = xhook
 
-  function updateDock() {
-    ipc.send('update-dock', window.Gmail.get.unread_inbox_emails());
-  }
-
-  function setDockUpdaters() {
-    var updateEvents = ['new_email', 'refresh', 'unread', 'read',
-                        'delete', 'move_to_inbox', 'move_to_label'];
-    for (var i = 0; i < updateEvents.length; i++) {
-      window.Gmail.observe.on(updateEvents[i], updateDock);
+  xhook.after((request, response) => {
+    if(request.url.match(/sync\/.*/)) {
+      console.log('sync')
     }
+  })
+
+  function config_unread_counts() {
+    console.log('config unread counts')
+    const left_bar = $('.Ls77Lb.aZ6')
+    function get_unread_count() {
+      // left bar
+      const inbox = left_bar.find('.aim').filter((idx, ele) => {
+        return ($(ele).find('a').text() === 'Inbox')
+      })
+      counter_div = inbox.find('a').parent().next()
+      return counter_div.length ? counter_div.text() : 0
+    }
+
+     // Options for the observer (which mutations to observe)
+    const config = { attributes: false, childList: true, subtree: true, characterData: true }
+
+     // Callback function to execute when mutations are observed
+    var callback = function(mutationsList) {
+      for (var mutation of mutationsList) {
+        update_dock(get_unread_count());
+      }
+    };
+
+    // Create an observer instance linked to the callback function
+    const observer = new MutationObserver(callback);
+
+    const target = left_bar.find('.aim').parent().get(0)
+    // Start observing the target node for configured mutations
+    observer.observe(target, config);
+    // observer.observe(counter_div.first().parent().get(0), config);
+
+    update_dock(get_unread_count());
   }
 
-  ipc.on('start-compose', window.Gmail.compose.start_compose.bind(window.page));
+  function update_dock(count) {
+    ipc.send('update-dock', count)
+  }
+  config_unread_counts()
+
+  // ipc.on('start-compose', window.Gmail.compose.start_compose.bind(window.page));
   ipc.on('logout', window.page.logout.bind(window.page));
   ipc.on('navigate', (event, place) => {
     window.page.navigateTo(place);
   });
 
-  updateDock();
-  setDockUpdaters();
   window.page.adjustProfilePicture();
   window.page.adjustLogoutButton();
   // window.page.applyHangoutsCss();
+  //  window.Gmail.observe.on("new_email", function(e){
+  //    console.log(e)
+  //  });
+  //  console.log(window.Gmail.get.unread_emails())
 };
