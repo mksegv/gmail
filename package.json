@@ -1,7 +1,7 @@
 {
   "name": "Gto",
   "productName": "Gto",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "An electron-based gmail client.",
   "main": "index.js",
   "bin": {
