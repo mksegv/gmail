@@ -18,9 +18,15 @@ const oktaRe = 'https://.*.okta.com/';
 const gmailDomainRe = 'https://mail.google.com/';
 const editInNewTabRe = 'https://mail.google.com/mail/.*#cmid%253D[0-9]+';
 
+var last_badge = 0
+
 // Set os specific stuff
 electron.ipcMain.on('update-dock', function(event, arg) {
   if (os.platform() === 'darwin') {
+    if (arg != last_badge) {
+      app.dock.bounce('informational')
+      last_badge = arg
+    }
     if (arg > 0) {
       // Hide dock badge when unread mail count is 0
       app.dock.setBadge(arg.toString());
@@ -57,6 +63,10 @@ function createWindow() {
       webSecurity: false,
       plugins: true
     }
+  });
+
+  mainWindow.webContents.on('new-window', function(e, url) {
+    console.log(e, url)
   });
 
   // Let us register listeners on the window, so we can update the state
