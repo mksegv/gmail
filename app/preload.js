@@ -12,8 +12,25 @@ window.onload = function() {
   xhook.after((request, response) => {
     if(request.url.match(/sync\/.*/)) {
       console.log('sync')
+      console.log(response)
     }
   })
+
+  window.unread_msg = []
+  function get_unread_mails() {
+    const all_mails = $('.UI tr')
+    const all_unread_mails = all_mails.map((idx, ele) => {
+      const overview = ele.find('.yX.xY>.afn').text()
+      if (!overview.startsWith('unread,')) return null
+      const fields = overview.split(',')
+      const from = fields[1].trim()
+      return {
+        from: fields[1].trim(),
+        title: fields[2].trim(),
+      }
+    })
+    // all_mails = .first().find('.yX.xY>.afn').text()
+  }
 
   function config_unread_counts() {
     console.log('config unread counts')

@@ -67,6 +67,12 @@ function createWindow() {
 
   mainWindow.webContents.on('new-window', function(e, url) {
     console.log(e, url)
+    //mainWindow.loadURL(url)
+    //e.preventDefault()
+    //const win = new BrowserWindow({ show: false })
+		// win.once('ready-to-show', () => win.show())
+		// win.loadURL(url)
+		//e.newGuest = win
   });
 
   // Let us register listeners on the window, so we can update the state
